@@ -13,7 +13,7 @@ void ip_checksum_update(uint16_t *checksum, const void *data, uint16_t length) {
     uint32_t csum = *checksum;
     const uint8_t *d = (const uint8_t*)data;
     while(length>=2) {
-        csum += ip_read16(d);
+        csum += read16(d);
         length -= 2; d+=2;
     }
     if(length)

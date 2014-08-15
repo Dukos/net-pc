@@ -87,9 +87,9 @@ void ip_rx_read(void *buf, uint16_t offset, uint16_t size) {
 
 ip_return_t ip_tx_begin(const uint8_t *address, uint16_t protocol) {
     memcpy(ip_hw_pc_txbuf, address, 6);
-    memcpy(ip_hw_pc_txbuf+6, ip_config.mac, 6);
+    memcpy(ip_hw_pc_txbuf+6, ip::config.mac, 6);
     uint8_t buf[2];
-    ip_write16(buf, protocol);
+    ip::write16(buf, protocol);
     memcpy(ip_hw_pc_txbuf+12, buf, 2);
     return RETURN_FINISHED;
 }

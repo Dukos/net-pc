@@ -2,29 +2,33 @@
 #define jachor_ip__
 
 #include <stdint.h>
+#include <cstddef>
 
-#define IP_MAC_SIZE     (6)
-#define IP_ADDR_SIZE    (4)
-#define IP_MAX_ADDR_TEXT (4*4)
-#define IP_MAX_MAC_TEXT (6*3)
+namespace ip
+{
+    const std::size_t mac_size(6);
+    const std::size_t addr_size(4);
+    const std::size_t mac_addr_text(4 * 4);
+    const std::size_t mac_text(6 * 3);
 
-struct ip_config {
-    uint8_t mac[IP_MAC_SIZE];
-    uint8_t address[IP_ADDR_SIZE];
-    uint8_t netmask[IP_ADDR_SIZE];
-    uint8_t gateway[IP_ADDR_SIZE];
-};
+    struct Config {
+        uint8_t mac[mac_size];
+        uint8_t address[addr_size];
+        uint8_t netmask[addr_size];
+        uint8_t gateway[addr_size];
+    };
 
-extern struct ip_config ip_config;
+    extern Config config;
 
-char ip_parse_addr(uint8_t *out, const char *addr);
-char ip_parse_mac(uint8_t *out, const char *addr);
-int ip_print_addr(char *buf, const uint8_t *addr);
-int ip_print_mac(char *buf, const uint8_t *mac);
+    char parse_addr(uint8_t *out, const char *addr);
+    char parse_mac(uint8_t *out, const char *addr);
+    int print_addr(char *buf, const uint8_t *addr);
+    int print_mac(char *buf, const uint8_t *mac);
 
-uint16_t ip_read16(const uint8_t *ptr);
-uint32_t ip_read32(const uint8_t *ptr);
-void ip_write16(uint8_t *buf, uint16_t value);
-void ip_write32(uint8_t *buf, uint32_t value);
+    uint16_t read16(const uint8_t *ptr);
+    uint32_t read32(const uint8_t *ptr);
+    void write16(uint8_t *buf, uint16_t value);
+    void write32(uint8_t *buf, uint32_t value);
+}
 
 #endif

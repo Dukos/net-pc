@@ -6,8 +6,10 @@
 #include "ip.h"
 #include <stdint.h>
 
+using namespace ip;
+
 #define MAC_LEN  (6)
-const uint8_t ip_mac_broadcast[IP_MAC_SIZE] = {0xff,0xff,0xff,0xff,0xff,0xff};
+const uint8_t ip_mac_broadcast[mac_size] = {0xff,0xff,0xff,0xff,0xff,0xff};
 #define IP_LEN   (4)
 
 
@@ -87,8 +89,8 @@ void ip_crc16(uint16_t *crc, const void *data, uint16_t length);
 /*
  * informacje
  */
-extern uint8_t ip_sender_mac[IP_MAC_SIZE];
-extern uint8_t ip_sender_addr[IP_ADDR_SIZE];
+extern uint8_t ip_sender_mac[mac_size];
+extern uint8_t ip_sender_addr[addr_size];
 
 /*
  * protokoły

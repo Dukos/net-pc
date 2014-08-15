@@ -9,9 +9,9 @@
 int main() {
     ip_hw_pc_init("tuneth");
 
-    ip_parse_mac(ip_config.mac, "00:01:02:77:a4:26");
-    ip_parse_addr(ip_config.address, "10.0.0.10");
-    ip_parse_addr(ip_config.netmask, "255.0.0.0");
+    ip::parse_mac(ip::config.mac, "00:01:02:77:a4:26");
+    ip::parse_addr(ip::config.address, "10.0.0.10");
+    ip::parse_addr(ip::config.netmask, "255.0.0.0");
 
     while(1) {
         ip_hw_pc_fetch_packet();

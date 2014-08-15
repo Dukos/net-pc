@@ -66,7 +66,7 @@ ip_return_t ip_handle_icmp(uint16_t offset, uint16_t length) {
     if(csum_rx != 0)
         return RETURN_FINISHED; // zla suma kontrolna odbieranego pakietu
 
-    ip_write16(hdr.checksum, csum_tx);
+    ip::write16(hdr.checksum, csum_tx);
     ip_tx_write(&hdr, ETH_HEADER_SIZE+IP_HEADER_SIZE, sizeof(hdr));
     ip_tx_end(length + ETH_HEADER_SIZE + IP_HEADER_SIZE);
 

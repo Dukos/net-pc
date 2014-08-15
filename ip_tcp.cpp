@@ -17,8 +17,8 @@ struct tcp_header {
 
 struct ip_tcp_socket {
     struct ip_cdll_entry list;
-    uint8_t mac[IP_MAC_SIZE];
-    uint8_t addr[IP_ADDR_SIZE];
+    uint8_t mac[ip::mac_size];
+    uint8_t addr[ip::addr_size];
     uint8_t port[2];
 };
 
