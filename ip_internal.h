@@ -7,7 +7,7 @@
 #include <stdint.h>
 
 #define MAC_LEN  (6)
-extern const uint8_t ip_mac_broadcast[IP_MAC_SIZE];
+const uint8_t ip_mac_broadcast[IP_MAC_SIZE] = {0xff,0xff,0xff,0xff,0xff,0xff};
 #define IP_LEN   (4)
 
 

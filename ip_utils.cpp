@@ -71,5 +71,3 @@ void ip_write32(uint8_t *buf, uint32_t value) {
     ip_write16(buf+2, value >> 16);
 }
 
-const uint8_t ip_mac_broadcast[IP_MAC_SIZE] = {0xff,0xff,0xff,0xff,0xff,0xff};
-
